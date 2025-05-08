@@ -12,11 +12,17 @@ return {
     config = function()
       builtin = require("telescope.builtin")
       vim.keymap.set('n', '<C-p>', function()
-        builtin.find_files({ hidden = true })
+        builtin.find_files({
+          hidden = true,
+          file_ignore_patterns = { '%.git/' },
+        })
       end, { desc = 'Telescope find files' })
 
       vim.keymap.set('n', '<leader>fd', function()
-        builtin.find_files({ hidden = true })
+        builtin.find_files({
+          hidden = true,
+          file_ignore_patterns = { '%.git/' },
+        })
       end, { desc = 'Telescope find files' })
 
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
