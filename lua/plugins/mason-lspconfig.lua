@@ -52,16 +52,15 @@ return {
 
       -- display error inline
       vim.diagnostic.config({
-         virtual_text = {
-           prefix = '●', -- Could be '●', '▎', 'x'
-           spacing = 2,
-         },
-         signs = true,
-         underline = true,
-         update_in_insert = false,
-         severity_sort = true,
+        virtual_text = {
+          prefix = '●', -- Could be '●', '▎', 'x'
+          spacing = 2,
+        },
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
       })
     end
   }
 }
-
