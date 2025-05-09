@@ -3,7 +3,7 @@ return {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
-    end
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -11,16 +11,16 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls", "rust_analyzer" },
       })
-    end
+    end,
   },
   {
     -- setup communication between nvim and LSP servers
     "neovim/nvim-lspconfig",
     dependencies = {
-      'saghen/blink.cmp'
+      "saghen/blink.cmp",
     },
     config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
       local lspconfig = require("lspconfig")
 
       -- lsp install
@@ -28,19 +28,21 @@ return {
       lspconfig.rust_analyzer.setup({ capabilities = capabilities })
 
       -- keybinding
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
       -- keybinding for specific LSP
-      vim.api.nvim_create_autocmd('LspAttach', {
+      vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local c = vim.lsp.get_client_by_id(args.data.client_id)
-          if not c then return end
+          if not c then
+            return
+          end
 
           if vim.bo.filetype == "lua" then
             -- Format the current buffer on save
-            vim.api.nvim_create_autocmd('BufWritePre', {
+            vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
               callback = function()
                 vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
@@ -53,7 +55,7 @@ return {
       -- display error inline
       vim.diagnostic.config({
         virtual_text = {
-          prefix = '●', -- Could be '●', '▎', 'x'
+          prefix = "●", -- Could be '●', '▎', 'x'
           spacing = 2,
         },
         signs = true,
@@ -61,6 +63,6 @@ return {
         update_in_insert = false,
         severity_sort = true,
       })
-    end
-  }
+    end,
+  },
 }
