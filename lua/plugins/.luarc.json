@@ -2,6 +2,7 @@
     "diagnostics.globals": [
         "vim",
         "builtin",
-        "config"
+        "config",
+        "require"
     ]
 }
