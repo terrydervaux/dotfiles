@@ -19,4 +19,6 @@ vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
 -- line display
-vim.opt.number = true
+vim.o.number = true         -- show line numbers
+vim.o.relativenumber = true -- show line numbers
+vim.o.cursorline = true     -- highlight current line
