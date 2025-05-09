@@ -22,3 +22,10 @@ vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 vim.o.number = true         -- show line numbers
 vim.o.relativenumber = true -- show line numbers
 vim.o.cursorline = true     -- highlight current line
+
+-- vsidl treated as proto files
+vim.filetype.add({
+  extension = {
+    vsidl = "proto",
+  },
+})
