@@ -14,6 +14,7 @@ return {
     end
   },
   {
+    -- setup communication between nvim and LSP servers
     "neovim/nvim-lspconfig",
     dependencies = {
       'saghen/blink.cmp'
@@ -31,7 +32,7 @@ return {
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 
-      -- tg hack
+      -- keybinding for specific LSP
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local c = vim.lsp.get_client_by_id(args.data.client_id)
