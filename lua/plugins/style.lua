@@ -6,6 +6,7 @@ return {
       sources = {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.markdownlint,
+        null_ls.builtins.formatting.prettier,
       },
     })
 
