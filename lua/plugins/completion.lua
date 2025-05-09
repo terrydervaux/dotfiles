@@ -45,4 +45,41 @@ return {
       signature = { enabled = true },
     },
   },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = "<C-l>",  -- copilot accept keymap
+            next = "<M-]>",    -- move to next suggestion
+            prev = "<M-[>",    -- move to previous suggestion
+            dismiss = "<C-]>", -- dismiss the suggestion
+          },
+        },
+        panel = {
+          enabled = false, -- disable the copilot panel,
+        },
+      })
+
+      -- Toogle copilot suggestion when BlinkCmp menu is open
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "BlinkCmpMenuOpen",
+        callback = function()
+          vim.b.copilot_suggestion_hidden = true
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "BlinkCmpMenuClose",
+        callback = function()
+          vim.b.copilot_suggestion_hidden = false
+        end,
+      })
+    end,
+  },
 }
