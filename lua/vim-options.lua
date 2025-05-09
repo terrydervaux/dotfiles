@@ -23,6 +23,9 @@ vim.o.number = true         -- show line numbers
 vim.o.relativenumber = true -- show line numbers
 vim.o.cursorline = true     -- highlight current line
 
+-- colomn display
+vim.opt.colorcolumn = "80"
+
 -- vsidl treated as proto files
 vim.filetype.add({
   extension = {
