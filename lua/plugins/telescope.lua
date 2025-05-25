@@ -33,6 +33,19 @@ return {
       end)
       vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+
+      -- obsidian related keymap
+      local notes_dir = vim.fn.expand("~/cloud/icloud/Obsidian/second-brain")
+      vim.keymap.set("n", "<leader>fn", function()
+        require("telescope.builtin").find_files({
+          cwd = notes_dir,
+        })
+      end)
+      vim.keymap.set("n", "<leader>fng", function()
+        require("telescope.builtin").live_grep({
+          cwd = notes_dir,
+        })
+      end)
     end,
   },
   {
