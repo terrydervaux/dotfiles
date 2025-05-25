@@ -32,3 +32,6 @@ vim.filetype.add({
     vsidl = "proto",
   },
 })
+
+-- jj to escape insert mode
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true })
