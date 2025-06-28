@@ -30,7 +30,7 @@ return {
         require("telescope.builtin").find_files({
           cwd = vim.fn.stdpath("config"),
         })
-      end)
+      end, { desc = "Telescope find neovim config files" })
       vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
@@ -40,12 +40,12 @@ return {
         require("telescope.builtin").find_files({
           cwd = notes_dir,
         })
-      end)
+      end, { desc = "Telescope find notes" })
       vim.keymap.set("n", "<leader>fng", function()
         require("telescope.builtin").live_grep({
           cwd = notes_dir,
         })
-      end)
+      end, { desc = "Telescope live grep notes" })
     end,
   },
   {
