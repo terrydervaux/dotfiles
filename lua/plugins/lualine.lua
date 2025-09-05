@@ -5,6 +5,7 @@ return {
     require("lualine").setup({
       options = {
         theme = "dracula",
+        path = 1, -- Use relative path
       },
     })
   end,
