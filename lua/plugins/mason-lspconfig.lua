@@ -10,6 +10,9 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls", "rust_analyzer", "just", "clangd" },
+        -- do not automatically install LSP since we are managing them manually
+        -- below to integrate with blink.cmp
+        automatic_enable = false,
       })
     end,
   },
@@ -20,10 +23,19 @@ return {
       "saghen/blink.cmp",
     },
     config = function()
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
-      local lspconfig = require("lspconfig")
+      -- retrieve blink cmp capabilities
+      local capabilities = {
+        textDocument = {
+          foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+          },
+        },
+      }
+      capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
-      -- lsp install
+      -- configure LSP servers
+      local lspconfig = require("lspconfig")
       lspconfig.just.setup({ capabilities = capabilities })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.rust_analyzer.setup({ capabilities = capabilities })
