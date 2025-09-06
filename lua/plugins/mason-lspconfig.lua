@@ -39,6 +39,7 @@ return {
       lspconfig.just.setup({ capabilities = capabilities })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+      lspconfig.clangd.setup({ capabilities = capabilities })
 
       -- keybinding
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
