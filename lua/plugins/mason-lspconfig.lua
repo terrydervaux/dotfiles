@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "just", "clangd" },
+        ensure_installed = { "lua_ls", "rust_analyzer", "just", "clangd", "pyright" },
         -- do not automatically install LSP since we are managing them manually
         -- below to integrate with blink.cmp
         automatic_enable = false,
@@ -40,6 +40,7 @@ return {
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.rust_analyzer.setup({ capabilities = capabilities })
       lspconfig.clangd.setup({ capabilities = capabilities })
+      lspconfig.pyright.setup({ capabilities = capabilities })
 
       -- keybinding
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
