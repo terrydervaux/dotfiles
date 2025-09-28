@@ -38,7 +38,43 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig.just.setup({ capabilities = capabilities })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
+
       lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+      -- -- configure Rust LSP for android hardware dev
+      -- local current_work_directory = vim.loop.cwd()
+      -- local ndk_version = "25.2.9519653"
+      -- local android_home = os.getenv("ANDROID_HOME") or "/your/android/sdk/path"
+      -- local ndk_home = android_home .. "/ndk/" .. ndk_version
+      -- local toolchain_root = ndk_home .. "/toolchains/llvm/prebuilt/linux-x86_64"
+      -- local cargo_android_hw_env = {
+      --   ANDROID_NDK_VERSION = ndk_version,
+      --   ANDROID_NDK_HOME = ndk_home,
+      --   NDK_TOOLCHAIN_ROOT = toolchain_root,
+      --   PATH = toolchain_root .. "/bin:" .. os.getenv("PATH"),
+      --   CMAKE_TOOLCHAIN_FILE = ndk_home .. "/build/cmake/android.toolchain.cmake",
+      --   ANDROID_NDK = ndk_home,
+      --   CARGO_BUILD_TARGET = "aarch64-linux-android",
+      --   CC = "aarch64-linux-android33-clang",
+      --   CXX = "aarch64-linux-android33-clang",
+      --   ANDROID_ABI = "arm64-v8a",
+      --   CXXSTDLIB_aarch64_linux_android = "c++_static",
+      --   KANZI_RUST_PLATFORM = "linux_bs_drm_aarch64_ndk",
+      --   KANZI_HOME = current_work_directory .. "/crates/platform_graphics",
+      --   V4L2R_VIDEODEV2_H_PATH = "",
+      -- }
+
+      -- lspconfig.rust_analyzer.setup({
+      --   capabilities = capabilities,
+      --   cmd_env = cargo_android_hw_env,
+      --   settings = {
+      --     ["rust-analyzer"] = {
+      --       cargo = {
+      --         target = "aarch64-linux-android",
+      --       },
+      --     },
+      --   },
+      -- })
+
       lspconfig.clangd.setup({ capabilities = capabilities })
       lspconfig.pyright.setup({ capabilities = capabilities })
 
