@@ -14,6 +14,7 @@ return {
         "bp",
         "yaml",
         "python",
+        "toml",
       },
       sync_install = false,
       indent = { enable = true },
