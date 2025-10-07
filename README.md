@@ -10,6 +10,11 @@ This repository contains my personal dotfiles configuration.
   ```bash
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ```
+- `ripgrep` for nvim telescope plugin
+
+  ```bash
+  sudo apt install ripgrep
+  ```
 
 ## Installation
 
