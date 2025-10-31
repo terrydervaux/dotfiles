@@ -9,7 +9,14 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "just", "clangd", "pyright" },
+        ensure_installed = {
+          "lua_ls",
+          "rust_analyzer",
+          "just",
+          "clangd",
+          "pyright",
+          "bashls",
+        },
         -- do not automatically install LSP since we are managing them manually
         -- below to integrate with blink.cmp
         automatic_enable = false,
@@ -38,6 +45,7 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig.just.setup({ capabilities = capabilities })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
+      lspconfig.bashls.setup({ capabilities = capabilities })
 
       lspconfig.rust_analyzer.setup({ capabilities = capabilities })
       -- -- configure Rust LSP for android hardware dev
