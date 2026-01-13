@@ -16,6 +16,7 @@ return {
           "clangd",
           "pyright",
           "bashls",
+          "dockerls",
         },
         -- do not automatically install LSP since we are managing them manually
         -- below to integrate with blink.cmp
@@ -85,6 +86,7 @@ return {
 
       lspconfig.clangd.setup({ capabilities = capabilities })
       lspconfig.pyright.setup({ capabilities = capabilities })
+      lspconfig.dockerls.setup({ capabilities = capabilities })
 
       -- keybinding
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
