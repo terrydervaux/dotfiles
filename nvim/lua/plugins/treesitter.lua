@@ -15,6 +15,7 @@ return {
         "yaml",
         "python",
         "toml",
+        "ron",
       },
       sync_install = false,
       indent = { enable = true },
