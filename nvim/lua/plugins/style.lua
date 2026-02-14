@@ -7,7 +7,14 @@ return {
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.diagnostics.markdownlint,
-          null_ls.builtins.formatting.prettier,
+          null_ls.builtins.formatting.prettier.with({
+            extra_args = {
+              "--print-width",
+              "80",
+              "--prose-wrap",
+              "always",
+            },
+          }),
         },
       })
 
