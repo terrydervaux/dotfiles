@@ -16,6 +16,12 @@ This repository contains my personal dotfiles configuration.
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ```
 
+- `wl-clipboard` required by `tmux-yank` plugin (Wayland clipboard support)
+
+  ```bash
+  sudo apt-get install wl-clipboard
+  ```
+
 - [NodeJS](https://nodejs.org/en/download/) required by `nvim-copilot` plugin
 - `clang` and `make` required by `telescope-fzf-native.nvim` plugin
 
