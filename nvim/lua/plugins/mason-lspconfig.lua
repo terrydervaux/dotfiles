@@ -42,13 +42,13 @@ return {
       }
       capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
-      -- configure LSP servers
-      local lspconfig = require("lspconfig")
-      lspconfig.just.setup({ capabilities = capabilities })
-      lspconfig.lua_ls.setup({ capabilities = capabilities })
-      lspconfig.bashls.setup({ capabilities = capabilities })
+      -- configure LSP servers using vim.lsp.config (nvim 0.11+)
+      local servers = { "just", "lua_ls", "bashls", "rust_analyzer", "clangd", "pyright", "dockerls" }
+      for _, server in ipairs(servers) do
+        vim.lsp.config(server, { capabilities = capabilities })
+      end
+      vim.lsp.enable(servers)
 
-      lspconfig.rust_analyzer.setup({ capabilities = capabilities })
       -- -- configure Rust LSP for android hardware dev
       -- local current_work_directory = vim.loop.cwd()
       -- local ndk_version = "25.2.9519653"
@@ -72,7 +72,7 @@ return {
       --   V4L2R_VIDEODEV2_H_PATH = "",
       -- }
 
-      -- lspconfig.rust_analyzer.setup({
+      -- vim.lsp.config("rust_analyzer", {
       --   capabilities = capabilities,
       --   cmd_env = cargo_android_hw_env,
       --   settings = {
@@ -83,10 +83,6 @@ return {
       --     },
       --   },
       -- })
-
-      lspconfig.clangd.setup({ capabilities = capabilities })
-      lspconfig.pyright.setup({ capabilities = capabilities })
-      lspconfig.dockerls.setup({ capabilities = capabilities })
 
       -- keybinding
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
