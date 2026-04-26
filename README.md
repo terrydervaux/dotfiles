@@ -61,6 +61,5 @@ This repository contains my personal dotfiles configuration.
 ```bash
 stow .
 
-echo "# tmux alias to use XDG base directory spec" >> ~/.bashrc
-echo "alias tmux='tmux -f ~/.config/tmux/.tmux.conf'" >> ~/.bashrc
+ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ```
