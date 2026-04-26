@@ -37,6 +37,17 @@ This repository contains my personal dotfiles configuration.
   sudo apt-get install unzip
   ```
 
+- [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md)
+  required by `nvim-treesitter` plugin
+
+  Requires
+  [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html),
+  then:
+
+  ```bash
+  cargo install --locked tree-sitter-cli
+  ```
+
 - linters required by `none-ls.nvim` plugin
 
   ```bash
