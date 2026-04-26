@@ -31,6 +31,13 @@ This repository contains my personal dotfiles configuration.
     make
   ```
 
+- [ripgrep](https://github.com/BurntSushi/ripgrep) required by `telescope.nvim`
+  for live grep (`<leader>fg`)
+
+  ```bash
+  sudo apt-get install ripgrep
+  ```
+
 - `unzip` required by `mason.nvim` plugin
 
   ```bash
