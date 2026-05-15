@@ -63,10 +63,20 @@ This repository contains my personal dotfiles configuration.
     prettier
   ```
 
+- [rclone](https://rclone.org/install/)
+
+  ```bash
+  sudo -v ; curl https://rclone.org/install.sh | sudo bash
+  ```
+
 ## Installation
 
 ```bash
 stow .
 
 ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+
+# Enable and start icloud drive
+systemctl --user enable rclone@icloud
+systemctl --user start rclone@icloud
 ```
