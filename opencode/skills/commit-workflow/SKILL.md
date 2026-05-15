@@ -54,8 +54,8 @@ Agents MUST NEVER:
 
 ## Workflow
 
-1. When changes are completed, suggest a commit message following the
-   convention in [commit-format.md](./commit-format.md)
+1. When changes are completed, suggest a commit message following the convention
+   in [commit-format.md](./commit-format.md)
 2. WAIT for explicit authorization
 3. Only after receiving explicit permission, stage relevant changes and run:
 
