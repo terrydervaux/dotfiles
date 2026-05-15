@@ -1,6 +1,7 @@
 ---
 name: commit-workflow
-description: Standard commit message convention and workflow that must be followed
+description:
+  Standard commit message convention and workflow that must be followed
 license: MIT
 compatibility: opencode
 ---
@@ -10,9 +11,12 @@ compatibility: opencode
 Use this when you are ready to commit changes and want a consistent,
 conventional commit message.
 
-## The Golden Rule
+## The Golden Rules
 
-Agents MUST NEVER create commits unless the user explicitly requests it.
+Agents MUST NEVER:
+
+1. create commits unless the user explicitly requests it
+2. staged changes unless the user explicitly requests it
 
 ## Authorization
 
