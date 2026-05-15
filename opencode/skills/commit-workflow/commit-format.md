@@ -86,5 +86,6 @@ Footer references:
 ```text
 Refs: #123
 Closes: #123
+Refs: ABC-123, DEFGHIJ-11223344
 Refs: 676104e, a215868
 ```
