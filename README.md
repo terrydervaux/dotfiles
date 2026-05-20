@@ -70,3 +70,10 @@ stow .
 
 ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ```
+
+## Tiling Assistant
+
+```bash
+gnome-extensions disable tiling-assistant@ubuntu.com
+gnome-extensions enable tilingshell@ferrarodomenico.com
+```
