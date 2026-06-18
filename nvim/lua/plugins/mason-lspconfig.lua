@@ -17,6 +17,7 @@ return {
           "pyright",
           "bashls",
           "dockerls",
+          "taplo",
         },
         -- do not automatically install LSP since we are managing them manually
         -- below to integrate with blink.cmp
@@ -43,7 +44,7 @@ return {
       capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
       -- configure LSP servers using vim.lsp.config (nvim 0.11+)
-      local servers = { "just", "lua_ls", "bashls", "rust_analyzer", "clangd", "pyright", "dockerls" }
+      local servers = { "just", "lua_ls", "bashls", "rust_analyzer", "clangd", "pyright", "dockerls", "taplo" }
       for _, server in ipairs(servers) do
         vim.lsp.config(server, { capabilities = capabilities })
       end
